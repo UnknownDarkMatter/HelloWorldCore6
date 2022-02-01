@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model MessagesModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<p>Voici la liste des messages :</p>
+<ul>
+    @foreach(var message in Model.MessageEntities)
+    {
+        <li>@(message.Message ?? "")</li>
+    }
+</ul>
