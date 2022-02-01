@@ -3,3 +3,9 @@
 ################################################################################
 
 /HelloWorldCore6/bin/Debug/net6.0
+/HelloWorldCore6/obj
+/HelloWorldCore6.Data/bin/Debug/net6.0
+/HelloWorldCore6.Data/obj/Debug/net6.0
+/HelloWorldCore6.Data/obj
+/HelloWorldCore6.Entities/bin/Debug/net6.0
+/HelloWorldCore6.Entities/obj
