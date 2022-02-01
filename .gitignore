@@ -9,3 +9,6 @@
 /HelloWorldCore6.Data/obj
 /HelloWorldCore6.Entities/bin/Debug/net6.0
 /HelloWorldCore6.Entities/obj
+/HelloWorldCore6/bin/Release/net6.0
+/HelloWorldCore6.Data/bin/Release/net6.0
+/HelloWorldCore6.Entities/bin/Release/net6.0

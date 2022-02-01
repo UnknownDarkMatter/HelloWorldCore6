@@ -1,5 +1,7 @@
 using HelloWorldCore6.Data;
 using HelloWorldCore6.Infrastructure;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -8,9 +10,24 @@ builder.Logging.AddFile(@"C:\Logs\HelloWorldCore6\HelloWorldCore6-{Date}.log");
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Database.UpgradeDatabase(connectionString);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<MyDbContext>();
+
+//configure HTTPS
+//builder.WebHost.ConfigureKestrel((context, options) =>
+//{
+//    options.Listen(IPAddress.Any, 5001, listenOptions =>
+//    {
+//        var certificate = LoadCertificate();
+//        listenOptions.UseHttps(certificate);
+//    });
+//});
+//X509Certificate2 LoadCertificate()
+//{
+//    var x509certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(
+//        $"{Environment.CurrentDirectory}/token-jwt-secret-http2.pfx", "token-jwt-secret-http2");
+//    return x509certificate;
+//}
 
 var app = builder.Build();
 
