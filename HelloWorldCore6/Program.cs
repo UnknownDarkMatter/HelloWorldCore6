@@ -4,8 +4,11 @@ using System.Net;
 using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//configure logs
+var logPath = builder.Configuration.GetValue<string>("LogPath");
 builder.Logging.ClearProviders();
-builder.Logging.AddFile(@"C:\Logs\HelloWorldCore6\HelloWorldCore6-{Date}.log");
+builder.Logging.AddFile(logPath);
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Database.UpgradeDatabase(connectionString);

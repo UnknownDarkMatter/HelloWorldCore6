@@ -1,0 +1,26 @@
+services:
+
+  web-server:
+    #ASP.NET Core, avec le runtime uniquement et les optimisations ASP.NET Core, Linux et Windows (multi-arch)
+    #image: mcr.microsoft.com/dotnet/aspnet:6.0
+    #.net 5, avec les kits de développement logiciel (sdk) inclus, sur Linux et Windows (multi-arch)
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    working_dir: /home/WebSite
+    hostname: my-web-server
+    container_name: my-web-server
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - 5000:5000
+    volumes:
+      - type: bind
+        source: ./bin/WebSite
+        target: /home/WebSite
+    entrypoint: |
+      /bin/bash -c "
+        mkdir /home/logs
+        dotnet /home/WebSite/HelloWorldCore6.dll
+      "
+
+
+
